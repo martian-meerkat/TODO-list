@@ -1,0 +1,13 @@
+.header {
+    color: #f3f3f3;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-size: 28px;
+    margin-left: 32px;
+    display: inline;
+    vertical-align: middle;
+}
+
+.settings-button.MuiIconButton-root{
+    color: #f3f3f3;
+    margin-right: 32px;
+}

@@ -1,0 +1,11 @@
+.ticker {
+    position: absolute;
+    bottom: 0;
+    color: #f3f3f3;
+    max-width: 444px;
+    margin: auto;
+}
+
+.ticker-disabled {
+    display: none;
+}

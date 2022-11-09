@@ -1,0 +1,76 @@
+.today-item.MuiCard-root {
+    background-color: #222222;
+    box-shadow: none;
+    color: #f3f3f3;
+}
+
+.today-item-header {
+    flex-direction: row-reverse;
+}
+
+.today-item-header h2 {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.today-item-header.MuiCardHeader-root {
+    padding: 16px 32px;
+}
+
+.today-item-header .MuiCardHeader-action {
+    margin: 0;
+}
+
+.today-item-header-label {
+    margin: 0;
+}
+
+.today-item-checkbox.MuiCheckbox-root {
+    background-color: #f8f8f8;
+    border-radius: 4px;
+    color: #f8f8f8;
+    height: 18px;
+    width: 18px;
+}
+
+.today-item-checkbox.MuiCheckbox-root:hover {
+    background-color: #f8f8f8;
+}
+
+.today-item-checkbox-sign {
+    color: #6b6b6b;
+}
+
+.today-item-list {
+    border-radius: 24px;
+    background-color: #282828;
+    box-shadow: -5px -6px 6px #5b5b5b;
+    margin: 16px 16px 0 16px; 
+}
+
+.today-item-list li {
+    margin-bottom: 12px;
+    padding: 0 16px;
+}
+
+.today-item-list li:last-child {
+    margin-bottom: 0;
+}
+
+.today-item-list .MuiListItemText-primary {
+    cursor: pointer;
+}
+
+.today-item-list li.completed .MuiListItemText-primary {
+    text-decoration: line-through;
+}
+
+.today-item-list .MuiListItemText-secondary {
+    color: #949494;
+}
+
+.today-item-list li.collapsed .MuiListItemText-secondary {
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+}

@@ -1,0 +1,11 @@
+.todo-list {
+    height: 572px;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.todo-list::-webkit-scrollbar {
+    display: none;
+}
+

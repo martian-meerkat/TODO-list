@@ -1,12 +1,11 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const path = require('path');
-const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { jsonBeautify } = require('beautify-json');
 
-let config = {
+const config = {
   output: {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/',
@@ -47,20 +46,6 @@ let config = {
         ],
       },
       {
-        test: /\.less$/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'less-loader',
-          },
-        ],
-      },
-      {
         test: /\.svg$/,
         use: ['@svgr/webpack'],
       },
@@ -84,7 +69,6 @@ module.exports = (env, argv) => {
       compress: true,
       hot: true,
       static: './build',
-      historyApiFallback: true, //For react router
     };
   }
 
@@ -93,27 +77,6 @@ module.exports = (env, argv) => {
     config.devtool = 'source-map';
     config.output.filename = '[name].[chunkhash].bundle.js';
     config.output.chunkFilename = '[name].[chunkhash].bundle.js';
-    config.optimization = {
-      moduleIds: 'hashed',
-      runtimeChunk: {
-        name: 'manifest',
-      },
-      splitChunks: {
-        cacheGroups: {
-          vendors: {
-            test: /node_modules\/(?!antd\/).*/,
-            name: 'vendors',
-            chunks: 'all',
-          },
-          // This can be your own design library.
-          antd: {
-            test: /node_modules\/(antd\/).*/,
-            name: 'antd',
-            chunks: 'all',
-          },
-        },
-      },
-    };
     config.plugins.push(
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
@@ -128,13 +91,11 @@ module.exports = (env, argv) => {
     config.performance = {
       hints: 'warning',
       // Calculates sizes of gziped bundles.
-      assetFilter: function (assetFilename) {
+      assetFilter(assetFilename) {
         return assetFilename.endsWith('.js.gz');
       },
     };
   }
-
-  console.log('Webpack config\n');
 
   jsonBeautify(config);
 
